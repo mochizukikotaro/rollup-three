@@ -1,3 +1,5 @@
+var cube
+
 class Cube1 {
 
   constructor () {
@@ -34,7 +36,7 @@ class Cube1 {
     // cube
     var cubeGeometry = new THREE.BoxGeometry(4, 4, 4)
     var cubeMaterial = new THREE.MeshLambertMaterial({ color: 0xff00aa })
-    var cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
+    cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
     scene.add(cube)
 
     document.getElementById('webgl').appendChild(renderer.domElement)
@@ -45,7 +47,11 @@ class Cube1 {
     this.camera = camera
   }
 
-  render () {
+  update () {
+    cube.rotation.x += 0.01
+    cube.rotation.y += 0.01
+    cube.rotation.z += 0.01
+
     this.renderer.render(this.scene, this.camera);
   }
 }

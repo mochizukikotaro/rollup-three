@@ -36,7 +36,7 @@ class Cube2 {
     document.getElementById('webgl').appendChild(renderer.domElement)
   }
 
-  render () {
+  update () {
     renderer.render(scene, camera);
   }
 
