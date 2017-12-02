@@ -8,8 +8,7 @@ export default {
   output: {
     file: 'dist/bundle.js',
     format: 'iife',
-    name: 'rollupThree',
-    external: [ 'Stats' ]
+    name: 'rollupThree'
   },
   watch: {
     include: 'src/**'
