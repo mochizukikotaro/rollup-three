@@ -1,12 +1,22 @@
-
 const Cube1 = require('./Cube1')
+const Cube2 = require('./Cube2')
 
 function init () {
-  const sample = new Cube1()
+
+  const hash = location.hash
+
+  switch (hash) {
+    case '#2':
+      var inst = new Cube2()
+      break
+    default:
+      var inst = new Cube1()
+      break
+  }
 
   function animate() {
       requestAnimationFrame(animate);
-      sample.render()
+      inst.render()
   }
   animate();
 }
