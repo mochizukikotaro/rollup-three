@@ -1,6 +1,3 @@
-var scene
-var camera
-
 
 const Cube1 = require('./Cube1')
 
