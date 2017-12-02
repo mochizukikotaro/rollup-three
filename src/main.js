@@ -3,6 +3,7 @@ const queryString = require('query-string')
 const Top = require('./Top')
 const Cube1 = require('./Cube1')
 const Cube2 = require('./Cube2/main.js')
+const Cube3 = require('./Cube3/main.js')
 
 function init () {
 
@@ -10,11 +11,11 @@ function init () {
 
   switch (id) {
     case '1':
-      var inst = new Cube1()
-      break
+      var inst = new Cube1(); break
     case '2':
-      var inst = new Cube2()
-      break
+      var inst = new Cube2(); break
+    case '3':
+      var inst = new Cube3(); break
     default:
       var inst = new Top()
       break
