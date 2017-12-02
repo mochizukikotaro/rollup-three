@@ -1,7 +1,7 @@
 const queryString = require('query-string')
 
 const Top = require('./Top')
-const Cube1 = require('./Cube1')
+const Cube1 = require('./Cube1/main.js')
 const Cube2 = require('./Cube2/main.js')
 const Cube3 = require('./Cube3/main.js')
 const CubeYellow = require('./CubeYellow/main.js')
