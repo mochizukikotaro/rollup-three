@@ -1,12 +1,14 @@
+const queryString = require('query-string')
+
 const Cube1 = require('./Cube1')
 const Cube2 = require('./Cube2')
 
 function init () {
 
-  const hash = location.hash
+  const id = queryString.parse(location.search)['id'];
 
-  switch (hash) {
-    case '#2':
+  switch (id) {
+    case '2':
       var inst = new Cube2()
       break
     default:

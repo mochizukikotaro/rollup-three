@@ -1,12 +1,17 @@
-class Cube1 {
+let renderer
+let scene
+let camera
+
+
+class Cube2 {
 
   constructor () {
     var w = window.innerWidth
     var h = window.innerHeight
-    var scene = new THREE.Scene()
+    scene = new THREE.Scene()
 
     // camera
-    var camera = new THREE.PerspectiveCamera(
+    camera = new THREE.PerspectiveCamera(
       45, w / h, 1, 1000
     )
     camera.position.set(-10, 10, 20)
@@ -18,7 +23,7 @@ class Cube1 {
     var controls = new OrbitControls(camera)
 
     // renderer
-    var renderer = new THREE.WebGLRenderer()
+    renderer = new THREE.WebGLRenderer()
     renderer.setClearColor(new THREE.Color(0xdddddd))
     renderer.setSize(w, h)
 
@@ -38,16 +43,11 @@ class Cube1 {
     scene.add(cube)
 
     document.getElementById('webgl').appendChild(renderer.domElement)
-
-    // この３つがプロパティ
-    this.renderer = renderer
-    this.scene = scene
-    this.camera = camera
   }
 
   render () {
-    this.renderer.render(this.scene, this.camera);
+    renderer.render(scene, camera);
   }
 }
 
-module.exports = Cube1
+module.exports = Cube2
