@@ -27,14 +27,17 @@ class Cube4 {
     camera.lookAt(scene.position)
     scene.add(camera)
 
-    // orbit controls
-    var OrbitControls = require('three-orbit-controls')(THREE)
-    var controls = new OrbitControls(camera)
 
     // renderer
     renderer = new THREE.WebGLRenderer()
     renderer.setClearColor(new THREE.Color(0xdddddd))
     renderer.setSize(w, h)
+
+
+    // orbit controls
+    var OrbitControls = require('three-orbit-controls')(THREE)
+    var controls = new OrbitControls(camera, renderer.domElement)
+
 
     sceneSubjects = this._createSceneSubjects(scene)
 
