@@ -42,6 +42,8 @@ function init () {
   var cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
   scene.add(cube)
 
+  console.log(location.pathname);
+
   document.getElementById('webgl').appendChild(renderer.domElement)
 
   function animate() {
