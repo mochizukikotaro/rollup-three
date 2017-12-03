@@ -49,7 +49,7 @@ class Sample7 {
       controls.cameraY,
       controls.cameraZ
     )
-    camera.lookAt(scene.position)
+    // camera.lookAt(scene.position)
     scene.add(camera)
 
 
@@ -86,15 +86,15 @@ class Sample7 {
       controls.cameraY,
       controls.cameraZ
     )
-    camera.lookAt(scene.position)
+    camera.lookAt(new THREE.Vector3(0, 0, 0))
     sceneSubjects.forEach((e, i, a) => {
       e.update()
     })
     cubes.forEach((e, i, a) => {
       e.update()
 
-      // TODO: 遠くへいったら消すという処理をこれで賄っている...
-      if (e.positionY > 20) {
+      // TODO: 下へいったら消すという処理をこれで賄っている...
+      if (e.positionY < -2) {
         cubes.splice(i, 1)
         e = null
       }
