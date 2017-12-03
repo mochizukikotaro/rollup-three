@@ -2,7 +2,7 @@ class SpotLight {
 
   constructor (scene) {
     var spotLight = new THREE.SpotLight(0xffffff)
-    spotLight.position.set(-10, -10, 20)
+    spotLight.position.set(-20, 30, -5)
     scene.add(spotLight)
   }
 

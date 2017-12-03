@@ -10,6 +10,7 @@ let cubes
 const Cube = require('./sceneSubjects/Cube')
 const SpotLight = require('./sceneSubjects/SpotLight')
 const Axes = require('./sceneSubjects/Axes')
+const Plane = require('./sceneSubjects/Plane')
 
 
 class Sample7 {
@@ -17,9 +18,9 @@ class Sample7 {
   constructor () {
     cubes = []
     controls = new function () {
-      this.cameraX = 0
-      this.cameraY = -50
-      this.cameraZ = 100
+      this.cameraX = -30
+      this.cameraY = 40
+      this.cameraZ = 30
 
       this.addCube = () => {
         var newCube = new Cube(scene)
@@ -41,7 +42,7 @@ class Sample7 {
 
     // camera
     camera = new THREE.PerspectiveCamera(
-      45, w / h, 1, 200
+      45, w / h, 1, 500
     )
     camera.position.set(
       controls.cameraX,
@@ -66,7 +67,18 @@ class Sample7 {
     sceneSubjects = this._createSceneSubjects(scene)
 
     document.getElementById('webgl').appendChild(renderer.domElement)
+
+    this._setEventHander()
   }
+
+  _setEventHander () {
+    window.addEventListener('keyup', (e) => {
+      if (e.keyCode == 32) {
+        controls.addCube()
+      }
+    })
+  }
+
 
   update () {
     camera.position.set(
@@ -94,7 +106,8 @@ class Sample7 {
   _createSceneSubjects (scene) {
     const sceneSubjects = [
         new Axes(scene),
-        new SpotLight(scene)
+        new SpotLight(scene),
+        new Plane(scene)
     ]
     return sceneSubjects;
   }
