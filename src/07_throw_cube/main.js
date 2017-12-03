@@ -5,6 +5,8 @@ let sceneSubjects
 let gui
 let controls
 
+let cubes
+
 const Cube = require('./sceneSubjects/Cube')
 const SpotLight = require('./sceneSubjects/SpotLight')
 const Axes = require('./sceneSubjects/Axes')
@@ -13,16 +15,24 @@ const Axes = require('./sceneSubjects/Axes')
 class Sample7 {
 
   constructor () {
+    cubes = []
     controls = new function () {
       this.cameraX = 0
       this.cameraY = -50
       this.cameraZ = 100
+
+      this.addCube = () => {
+        var newCube = new Cube(scene)
+        cubes.push(newCube)
+        console.log(cubes);
+      }
     }
 
     gui = new dat.GUI()
-    gui.add(controls, 'cameraX', -100, 100)
-    gui.add(controls, 'cameraY', -100, 100)
-    gui.add(controls, 'cameraZ', -100, 100)
+    gui.add(controls, 'cameraX', -1000, 1000)
+    gui.add(controls, 'cameraY', -1000, 1000)
+    gui.add(controls, 'cameraZ', -1000, 1000)
+    gui.add(controls, 'addCube')
 
 
     var w = window.innerWidth
@@ -68,14 +78,17 @@ class Sample7 {
     sceneSubjects.forEach((e, i, a) => {
       e.update()
     })
+    cubes.forEach((e, i, a) => {
+      e.update()
+    })
+
     renderer.render(scene, camera);
   }
 
   _createSceneSubjects (scene) {
     const sceneSubjects = [
         new Axes(scene),
-        new SpotLight(scene),
-        new Cube(scene, gui)
+        new SpotLight(scene)
     ]
     return sceneSubjects;
   }
