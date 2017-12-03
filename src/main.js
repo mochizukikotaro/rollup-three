@@ -7,6 +7,7 @@ const Cube3 = require('./03_cube/main.js')
 const Cube4 = require('./04_cube/main.js')
 const Cube5 = require('./05_cube/main.js')
 const AddCube6 = require('./06_add_cube/main.js')
+const ThrowCube7 = require('./07_throw_cube/main.js')
 
 function init () {
 
@@ -25,6 +26,8 @@ function init () {
       var inst = new Cube5(); break
     case '6':
       var inst = new AddCube6(); break
+    case '7':
+      var inst = new ThrowCube7(); break
     default:
       var inst = new Top()
       break
