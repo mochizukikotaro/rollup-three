@@ -1,11 +1,12 @@
 const queryString = require('query-string')
 
 const Top = require('./Top')
-const Cube1 = require('./Cube1/main.js')
-const Cube2 = require('./Cube2/main.js')
-const Cube3 = require('./Cube3/main.js')
-const CubeYellow = require('./CubeYellow/main.js')
-const Cube5 = require('./Cube5/main.js')
+const Cube1 = require('./01_cube/main.js')
+const Cube2 = require('./02_cube/main.js')
+const Cube3 = require('./03_cube/main.js')
+const Cube4 = require('./04_cube/main.js')
+const Cube5 = require('./05_cube/main.js')
+const AddCube6 = require('./06_add_cube/main.js')
 
 function init () {
 
@@ -19,9 +20,11 @@ function init () {
     case '3':
       var inst = new Cube3(); break
     case '4':
-      var inst = new CubeYellow(); break
+      var inst = new Cube4(); break
     case '5':
       var inst = new Cube5(); break
+    case '6':
+      var inst = new AddCube6(); break
     default:
       var inst = new Top()
       break
