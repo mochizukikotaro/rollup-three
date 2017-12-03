@@ -29,9 +29,9 @@ class Sample7 {
     }
 
     gui = new dat.GUI()
-    gui.add(controls, 'cameraX', -1000, 1000)
-    gui.add(controls, 'cameraY', -1000, 1000)
-    gui.add(controls, 'cameraZ', -1000, 1000)
+    gui.add(controls, 'cameraX', -300, 300)
+    gui.add(controls, 'cameraY', -300, 300)
+    gui.add(controls, 'cameraZ', -300, 300)
     gui.add(controls, 'addCube')
 
 
@@ -41,7 +41,7 @@ class Sample7 {
 
     // camera
     camera = new THREE.PerspectiveCamera(
-      45, w / h, 1, 1000
+      45, w / h, 1, 200
     )
     camera.position.set(
       controls.cameraX,
@@ -80,6 +80,12 @@ class Sample7 {
     })
     cubes.forEach((e, i, a) => {
       e.update()
+
+      // TODO: 遠くへいったら消すという処理をこれで賄っている...
+      if (e.positionY > 20) {
+        cubes.splice(i, 1)
+        e = null
+      }
     })
 
     renderer.render(scene, camera);
